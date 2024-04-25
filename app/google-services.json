@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "25733930065",
+    "project_id": "dialogue-a08df",
+    "storage_bucket": "dialogue-a08df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25733930065:android:b4b8cd34d43802a17cac70",
+        "android_client_info": {
+          "package_name": "com.example.dialogue"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlo3wcPKQn8Ib8tuhL0v5xsbkGcAZf2qk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
