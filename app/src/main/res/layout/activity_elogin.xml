@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img"
+    tools:context=".Elogin">
+
+    <TextView
+        android:id="@+id/el"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="    EMPLOYEE LOGIN"
+        android:textColor="@color/black"
+        android:textSize="40dp" />
+
+    <EditText
+        android:id="@+id/empemail"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/el"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:hint="EMAIL" />
+
+    <EditText
+        android:id="@+id/epswrd"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/empemail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="PASSWORD" />
+
+    <Button
+        android:id="@+id/esignin"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/epswrd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:text="SIGN IN"
+        app:iconTint="@color/white" />
+
+    <Button
+        android:id="@+id/fp"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/esignin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="FORGOT PASSWORD"
+        />
+
+    <Button
+        android:id="@+id/nur"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/fp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="NEW USER REGISTER" />
+
+    <Button
+        android:id="@+id/gem"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/nur"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="EMPLOYEE TEST LOGIN" />
+
+</RelativeLayout>
