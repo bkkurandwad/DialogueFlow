@@ -42,5 +42,12 @@ public class Edash extends AppCompatActivity {
             }
         });
 
+
+
     }
+
+    public void gotochat(View view) {
+        startActivity(new Intent(Edash.this, Chatbot.class));
+    }
+
 }

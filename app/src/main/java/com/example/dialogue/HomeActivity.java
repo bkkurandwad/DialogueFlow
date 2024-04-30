@@ -14,7 +14,5 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
     }
 
-    public void gotochat(View view) {
-        startActivity(new Intent(HomeActivity.this, Chatbot.class));
-    }
+
 }
