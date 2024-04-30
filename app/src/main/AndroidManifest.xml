@@ -14,15 +14,43 @@
         android:theme="@style/Theme.Dialogue"
         tools:targetApi="31">
         <activity
+            android:name=".Eregdetails"
+            android:exported="false" />
+        <activity
+            android:name=".Eregister"
+            android:exported="false" />
+        <activity
+            android:name=".Edash"
+            android:exported="false" />
+        <activity
+            android:name=".Hrregdetails"
+            android:exported="false" />
+        <activity
+            android:name=".Hrdash"
+            android:exported="false" />
+        <activity
+            android:name=".Hrreg"
+            android:exported="false" />
+        <activity
+            android:name=".Hrlogin"
+            android:exported="false" />
+        <activity
+            android:name=".Elogin"
+            android:exported="false" />
+        <activity
+            android:name=".Firstpage"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Chatbot"
             android:exported="false" />
     </application>
 

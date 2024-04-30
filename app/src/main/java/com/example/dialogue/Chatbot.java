@@ -1,5 +1,7 @@
 package com.example.dialogue;
 
+//import static com.google.firebase.database.core.operation.OperationSource.Source.User;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +24,9 @@ import com.google.cloud.dialogflow.v2.SessionsClient;
 import com.google.cloud.dialogflow.v2.SessionsSettings;
 import com.google.cloud.dialogflow.v2.TextInput;
 import com.google.common.collect.Lists;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +34,15 @@ import java.util.Objects;
 import java.util.UUID;
 
 
-public class MainActivity extends AppCompatActivity implements BotReply {
+public class Chatbot extends AppCompatActivity implements BotReply {
 
     RecyclerView chatView;
     ChatAdapter chatAdapter;
     List<Message> messageList = new ArrayList<>();
     EditText editMessage;
     ImageButton btnSend;
+
+    private FirebaseAuth auth;
 
     //dialogFlow
     private SessionsClient sessionsClient;
@@ -46,14 +53,19 @@ public class MainActivity extends AppCompatActivity implements BotReply {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_chatbot);
          chatView = findViewById(R.id.chatView);
         editMessage = findViewById(R.id.editMessage);
         btnSend = findViewById(R.id.btnSend);
-
         chatAdapter = new ChatAdapter(messageList, this);
         chatView.setAdapter(chatAdapter);
-
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //Firestore db = FirestoreOptions.getDefaultInstance().getService();
+       // database.collection("users")
+               // .document("user1")
+              //  .set(new User("John", "Doe", 30))
+              //  .addOnSuccessListener(aVoid -> System.out.println("DocumentSnapshot added with ID: user1"))
+               // .addOnFailureListener(e -> System.err.println("Error adding document: " + e));
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
                 String message = editMessage.getText().toString();
@@ -65,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements BotReply {
                     Objects.requireNonNull(chatView.getLayoutManager())
                             .scrollToPosition(messageList.size() - 1);
                 } else {
-                    Toast.makeText(MainActivity.this, "Please enter text!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Chatbot.this, "Please enter text!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

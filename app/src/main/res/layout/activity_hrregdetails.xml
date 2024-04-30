@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_3"
+    tools:context=".Hrregdetails">
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:id="@+id/hrtw"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:text=" ENTER  HR  DETAILS"
+        />
+
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/hrtw"
+        android:hint="ENTER ID "
+        android:id="@+id/hret1"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:hint="ENTER NAME"
+        android:layout_below="@+id/hret1"
+        android:id="@+id/hret2"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:hint="ENTER DEPT"
+        android:layout_below="@+id/hret2"
+        android:id="@+id/hret3"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/hret3"
+        android:hint="ENTER PH NUMBER"
+        android:id="@+id/hret4"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/hret4"
+        android:hint="ENTER ADDRESS"
+        android:id="@+id/hret5"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/hret5"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="SUBMIT"
+        android:id="@+id/subhr"
+        />
+
+
+</RelativeLayout>
