@@ -64,13 +64,8 @@ public class Hrreg extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(Hrreg.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                //RegperActivity.send(mail);
-
                 startActivity(new Intent(Hrreg.this, Hrregdetails.class));
             }
         });
-
-
-
     }
 }

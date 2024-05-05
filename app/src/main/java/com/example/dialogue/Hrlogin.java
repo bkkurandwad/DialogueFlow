@@ -61,7 +61,7 @@ public class Hrlogin extends AppCompatActivity {
                 else if (txtpwd.length() < 6)
                     Toast.makeText(Hrlogin.this, "wrong password", Toast.LENGTH_SHORT).show();
                 else {
-                    loginuser(txtemail, txtpwd);
+                   loginuser(txtemail, txtpwd);
                 }
             }
         });
