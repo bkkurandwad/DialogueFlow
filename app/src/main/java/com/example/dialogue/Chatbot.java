@@ -24,8 +24,8 @@ import com.google.cloud.dialogflow.v2.SessionsClient;
 import com.google.cloud.dialogflow.v2.SessionsSettings;
 import com.google.cloud.dialogflow.v2.TextInput;
 import com.google.common.collect.Lists;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.auth.FirebaseAuth;
+//import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class Chatbot extends AppCompatActivity implements BotReply {
     EditText editMessage;
     ImageButton btnSend;
 
-    private FirebaseAuth auth;
+  //  private FirebaseAuth auth;
 
     //dialogFlow
     private SessionsClient sessionsClient;
@@ -59,7 +59,7 @@ public class Chatbot extends AppCompatActivity implements BotReply {
         btnSend = findViewById(R.id.btnSend);
         chatAdapter = new ChatAdapter(messageList, this);
         chatView.setAdapter(chatAdapter);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+       // FirebaseDatabase database = FirebaseDatabase.getInstance();
         //Firestore db = FirestoreOptions.getDefaultInstance().getService();
        // database.collection("users")
                // .document("user1")
