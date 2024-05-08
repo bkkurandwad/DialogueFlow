@@ -3,15 +3,26 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+
 android {
 
     buildFeatures {
         buildConfig = true
+
     }
+
+
+
 
     packagingOptions {
         resources {
-            excludes += ['META-INF/INDEX.LIST', 'META-INF/DEPENDENCIES']
+            excludes += [
+                    'META-INF/INDEX.LIST',
+                    'META-INF/DEPENDENCIES',
+//                    'com/google/type/PostalAddress.class', // Add this line
+//                    'com/google/type/PostalAddressOrBuilder.class', // Add this line
+//                    'com/google/type/PostalAddress$Builder.class', // Add this line
+            ]
         }
     }
 
@@ -42,24 +53,37 @@ android {
     task("testClasses")
 
 
+    defaultConfig {
+        // other configurations
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    // Enable global synthetics for Java 11 support
+
+
 
 }
 
 dependencies {
-
     implementation 'com.google.cloud:google-cloud-dialogflow:4.47.0'
+    implementation 'com.google.firebase:firebase-auth:22.3.1'
     implementation 'io.grpc:grpc-okhttp:1.63.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-
-    implementation 'com.google.firebase:firebase-auth:22.3.1'
-
-
-
     implementation 'androidx.activity:activity:1.8.0'
     testImplementation 'junit:junit:4.13.2'
+    
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+
 
 }

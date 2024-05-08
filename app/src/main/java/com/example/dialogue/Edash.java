@@ -50,4 +50,6 @@ public class Edash extends AppCompatActivity {
         startActivity(new Intent(Edash.this, Chatbot.class));
     }
 
+    public void gotowork(View view) { startActivity(new Intent(Edash.this, Work.class));
+    }
 }
