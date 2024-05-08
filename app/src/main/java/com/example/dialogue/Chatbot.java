@@ -59,8 +59,8 @@ public class Chatbot extends AppCompatActivity implements BotReply {
         btnSend = findViewById(R.id.btnSend);
         chatAdapter = new ChatAdapter(messageList, this);
         chatView.setAdapter(chatAdapter);
-       // FirebaseDatabase database = FirebaseDatabase.getInstance();
-        //Firestore db = FirestoreOptions.getDefaultInstance().getService();
+        //FirebaseDatabase database = FirebaseDatabase.getInstance();
+       // Firestore db = FirestoreOptions.getDefaultInstance().getService();
        // database.collection("users")
                // .document("user1")
               //  .set(new User("John", "Doe", 30))

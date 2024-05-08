@@ -8,6 +8,89 @@
     android:layout_height="match_parent"
     tools:context=".Hrdash">
 
+    <TextView
+        android:id="@+id/dash"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="             HR \n     DASHBOARD"
+        android:textSize="50dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="EMP DETAILS"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoempd"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="ADD NEW EMPPLOYEE"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoademp"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="REMOVE EMPLOYEE"
+        android:layout_marginTop="300dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoremp"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="WORK DETAILS"
+        android:layout_marginTop="350dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotowork"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="ADD WORK"
+        android:layout_marginTop="400dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoadwork"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="UPDATE WORK"
+        android:layout_marginTop="450dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotoupwork"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="REMOVE WORK"
+        android:layout_marginTop="500dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotorework"
+        />
+
+    <Button
+        android:id="@+id/sout2"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="450dp"
+        android:layout_below="@+id/dash"
+        android:layout_centerHorizontal="true"
+        android:text="SIGN OUT"
+        />
+
 
 
 </RelativeLayout>

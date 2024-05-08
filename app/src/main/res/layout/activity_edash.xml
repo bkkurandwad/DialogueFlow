@@ -16,6 +16,7 @@
         android:text="      EMPLOYEE \n     DASHBOARD"
         android:textSize="50dp"
         android:textColor="@color/black"
+        android:layout_marginTop="50dp"
         />
 
     <Button
@@ -26,6 +27,16 @@
         android:layout_centerHorizontal="true"
         android:onClick="gotochat"
         />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="WORK DETAILS"
+        android:layout_marginTop="300dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotowork"
+        />
+
     <Button
         android:id="@+id/sout2"
         android:layout_width="120dp"
