@@ -59,13 +59,7 @@ public class Chatbot extends AppCompatActivity implements BotReply {
         btnSend = findViewById(R.id.btnSend);
         chatAdapter = new ChatAdapter(messageList, this);
         chatView.setAdapter(chatAdapter);
-        //FirebaseDatabase database = FirebaseDatabase.getInstance();
-       // Firestore db = FirestoreOptions.getDefaultInstance().getService();
-       // database.collection("users")
-               // .document("user1")
-              //  .set(new User("John", "Doe", 30))
-              //  .addOnSuccessListener(aVoid -> System.out.println("DocumentSnapshot added with ID: user1"))
-               // .addOnFailureListener(e -> System.err.println("Error adding document: " + e));
+
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
                 String message = editMessage.getText().toString();
