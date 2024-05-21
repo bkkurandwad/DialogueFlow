@@ -52,4 +52,10 @@ public class Edash extends AppCompatActivity {
 
     public void gotowork(View view) { startActivity(new Intent(Edash.this, Work.class));
     }
+
+    public void gotovoicebot(View view) { startActivity(new Intent(Edash.this, VoiceActivity.class));
+    }
+
+    public void gotonot(View view) { startActivity(new Intent(Edash.this, NotificationActivity.class));
+    }
 }

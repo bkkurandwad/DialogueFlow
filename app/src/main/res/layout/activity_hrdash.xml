@@ -89,6 +89,7 @@
         android:layout_below="@+id/dash"
         android:layout_centerHorizontal="true"
         android:text="SIGN OUT"
+        android:onClick="signout"
         />
 
 

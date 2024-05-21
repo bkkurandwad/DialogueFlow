@@ -3,12 +3,15 @@ package com.example.dialogue;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Hrdash extends AppCompatActivity {
 
@@ -43,5 +46,11 @@ public class Hrdash extends AppCompatActivity {
     }
 
     public void gotorework(View view) { startActivity(new Intent(Hrdash.this, Workreg.class));
+    }
+
+    public void signout(View view) {
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(Hrdash.this, "User Signed Out", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(Hrdash.this, Firstpage.class));
     }
 }
