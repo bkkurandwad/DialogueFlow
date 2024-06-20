@@ -40,6 +40,15 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:text="BOT"
+        android:layout_marginTop="350dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="gotobot"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:text="WORK DETAILS"
         android:layout_marginTop="400dp"
         android:layout_centerHorizontal="true"
