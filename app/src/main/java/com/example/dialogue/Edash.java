@@ -58,4 +58,7 @@ public class Edash extends AppCompatActivity {
 
     public void gotonot(View view) { startActivity(new Intent(Edash.this, NotificationActivity.class));
     }
+
+    public void gotobot(View view) { startActivity(new Intent(Edash.this, DCV_activity.class));
+    }
 }

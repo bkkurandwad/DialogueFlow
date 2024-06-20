@@ -25,11 +25,26 @@
         android:onClick="startvb"/>
 
     <Button
-        android:layout_width="50dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="500dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/stop"
+        android:text="stop"
         android:onClick="stop"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:thumbTint="@color/teal_200"
+        android:progressTint="@color/black"
+        android:layout_marginBottom="16dp"/>
+
+
+
 
 </RelativeLayout>

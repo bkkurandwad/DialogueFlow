@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +14,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dialogue"
         tools:targetApi="31">
+        <activity
+            android:name=".DCV_activity"
+            android:exported="false" />
+        <activity
+            android:name=".DialogueFlowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".network.FullscreenChatActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_fullscreen_chat"
+            android:theme="@style/Theme.Dialogue.Fullscreen" />
+        <activity
+            android:name=".CallnActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CallActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ServerActivity"
+            android:exported="false" />
         <activity
             android:name=".NotificationActivity"
             android:exported="false" />
@@ -31,9 +52,6 @@
             android:exported="false" />
         <activity
             android:name=".Work"
-            android:exported="false" />
-        <activity
-            android:name=".Woek"
             android:exported="false" />
         <activity
             android:name=".Eregdetails"

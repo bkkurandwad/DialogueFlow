@@ -15,6 +15,8 @@ import java.io.IOException;
 
 public class VoiceActivity extends AppCompatActivity {
 
+    private MediaPlayer mediaPlayer;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +28,33 @@ public class VoiceActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Initialize the MediaPlayer
+        mediaPlayer = MediaPlayer.create(this, R.raw.alemariyee);
     }
 
-
-   /* MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.song);
     public void startvb(View view) throws IOException {
+        // Start playing the audio
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
+        }
+    }
 
-                mediaPlayer.prepare();
+    public void stop(View view) {
+        // Stop playing the audio
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+            mediaPlayer.seekTo(0); // Rewind to the beginning
+        }
+    }
 
-                mediaPlayer.start();
-
-            }
-*/
-
-  /*  public void stop(View view) {
-        mediaPlayer.stop();
-
-        // Release the MediaPlayer object resources
-        mediaPlayer.release();
-
-        // Create a new MediaPlayer object for future use
-        mediaPlayer = new MediaPlayer();
-    }*/
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Release the MediaPlayer resources when the activity is destroyed
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
 }
-
-
