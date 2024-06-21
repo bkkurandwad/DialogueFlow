@@ -17,6 +17,24 @@
         android:onClick="callserver"
         />
 
+    <Button
+        android:text="PLAY"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:onClick="PLAYNOW"
+        />
+
+    <Button
+        android:text="STOP"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:onClick="STOPNOW"
+        />
+
     <TextView
         android:id="@+id/serst"
         android:text="Still ntg"

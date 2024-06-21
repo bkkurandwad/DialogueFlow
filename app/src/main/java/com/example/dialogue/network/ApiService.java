@@ -6,13 +6,19 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 
 public interface ApiService {
     @GET("/app")
     Call<ResponseBody> getHelloWorld();
     @POST("/synthesis") // Replace with your endpoint
     Call<Void> synthesizeText(@Body TextRequest textRequest);
+
+   // @POST("/posttoken")
+    //Call<Void> sendFCMTokenToServer(@Body String requestBody);
+
+    @GET("/call")
+    Call<ResponseBody> getCallResponse();
+
     }
 
 
