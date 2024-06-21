@@ -9,9 +9,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.dialogue.models.FCMTokenRequest;
 import com.example.dialogue.models.TextRequest;
 import com.example.dialogue.network.RetrofitClient;
 import com.example.dialogue.network.ApiService;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
@@ -22,14 +24,28 @@ import retrofit2.Response;
 import android.speech.tts.TextToSpeechService;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 
 public class ServerActivity extends AppCompatActivity {
 
     private TextToSpeechService service;
-
+    private MediaPlayer mediaPlayer;
     private TextView textView;
     private ApiService apiService;
 
@@ -53,32 +69,184 @@ public class ServerActivity extends AppCompatActivity {
 
         // Create ApiService instance
         apiService = retrofit.create(ApiService.class);
+        newtoken();
 
+        mediaPlayer = new MediaPlayer();
         // Make network request
-        makeNetworkRequest();
+      //  makeNetworkRequest();
+        
+
     }
 
-    private void sendTextAndReceiveAudio(String text) {
-        TextRequest textRequest = new TextRequest(text);
+    private void newtoken() {
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w("FCM", "Fetching FCM registration token failed", task.getException());
+                        return;
+                    }
 
-        Call<Void> call = apiService.synthesizeText(textRequest);
-        call.enqueue(new Callback<Void>() {
+                    // Get new FCM registration token
+                    String token = task.getResult();
+
+                    // Log or send the token to your server
+                    Log.d("FCM", "Token: " + token);
+                    textView.setText("Token: "+ token);
+
+                  //  sendToservernow(token);
+                });
+
+    }
+
+    private void startAudioPlayback() throws IOException {
+        // Set data source to the MP3 file
+        File file = new File(getFilesDir(), "call.mp3");
+        mediaPlayer.setDataSource(this, Uri.fromFile(file));
+
+        // Prepare and start playback
+        mediaPlayer.prepare();
+        mediaPlayer.start();
+    }
+
+    private void stopAudioPlayback() {
+        // Stop playing the audio
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+            mediaPlayer.seekTo(0); // Rewind to the beginning
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Release the MediaPlayer resources when the activity is destroyed
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    private void getCallResponse() {
+        Call<ResponseBody> call = apiService.getCallResponse();
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    // Handle successful response (audio received)
-                    // You can play the audio or save it locally
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        // Save the MP3 file to internal storage
+                        File file = new File(getFilesDir(), "call.mp3");
+                        InputStream inputStream = null;
+                        FileOutputStream outputStream = null;
+
+                        try {
+                            inputStream = response.body().byteStream();
+                            outputStream = new FileOutputStream(file);
+
+                            byte[] buffer = new byte[4096];
+                            int bytesRead;
+                            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                                outputStream.write(buffer, 0, bytesRead);
+                            }
+
+                            outputStream.flush();
+
+                            Log.d(TAG, "MP3 file saved successfully");
+
+                        } catch (IOException e) {
+                            Log.e(TAG, "Error saving MP3 file", e);
+                        } finally {
+                            if (inputStream != null) {
+                                inputStream.close();
+                            }
+                            if (outputStream != null) {
+                                outputStream.close();
+                            }
+                        }
+
+                    } catch (IOException e) {
+                        Log.e(TAG, "Error reading response body", e);
+                    }
                 } else {
-                    // Handle unsuccessful response
+                    Log.e(TAG, "Unsuccessful response: " + response.code());
+                    textView.setText("Error: " + response.code());
                 }
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                // Handle failure (network error, etc.)
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e(TAG, "Network request failed", t);
+                textView.setText("Network request failed: " + t.getMessage());
             }
         });
     }
+
+//    public void sendToservernow(String token) {
+//        try {
+//            JSONObject jsonObject = new JSONObject();
+//            jsonObject.put("token", token);
+//
+//            String requestBody = jsonObject.toString();
+//
+//            Call<Void> call = apiService.sendFCMTokenToServer(requestBody);
+//            call.enqueue(new Callback<Void>() {
+//                @Override
+//                public void onResponse(Call<Void> call, Response<Void> response) {
+//                    if (response.isSuccessful()) {
+//                        Log.d(TAG, "Token sent to server successfully");
+//                        Toast.makeText(ServerActivity.this, "Token sent to server successfully", Toast.LENGTH_SHORT).show();
+//                        // Handle success if needed
+//                    } else {
+//                        Log.e(TAG, "Failed to send token to server. Error: " + response.message());
+//                        Toast.makeText(ServerActivity.this, "Token not sent", Toast.LENGTH_SHORT).show();
+//                        // Handle error if needed
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<Void> call, Throwable t) {
+//                    Log.e(TAG, "Failed to send token to server. Error: " + t.getMessage(), t);
+//                    Toast.makeText(ServerActivity.this, "Network error. Failed to send token", Toast.LENGTH_SHORT).show();
+//                    // Handle failure
+//                }
+//            });
+//        } catch (JSONException e) {
+//            Log.e(TAG, "Error creating JSON object", e);
+//            Toast.makeText(ServerActivity.this, "Error sending token to server", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+//
+
+
+
+//    public void sendTosevernow(String token) {
+//
+//
+//            @Override
+//            public void onFailure(Call<Void> call, Throwable t) {
+//
+//            }
+//
+//            private void sendTextAndReceiveAudio(String text) {
+//        TextRequest textRequest = new TextRequest(text);
+//
+//        Call<Void> call = apiService.synthesizeText(textRequest);
+//        call.enqueue(new Callback<Void>() {
+//            @Override
+//            public void onResponse(Call<Void> call, Response<Void> response) {
+//                if (response.isSuccessful()) {
+//                    // Handle successful response (audio received)
+//                    // You can play the audio or save it locally
+//                } else {
+//                    // Handle unsuccessful response
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Void> call, Throwable t) {
+//                // Handle failure (network error, etc.)
+//            }
+//        });
+//    }
 
     private void makeNetworkRequest() {
         Call<ResponseBody> call = apiService.getHelloWorld();
@@ -113,6 +281,20 @@ public class ServerActivity extends AppCompatActivity {
 
 
     public void callserver(View view) {
-        makeNetworkRequest();
+        //makeNetworkRequest();
+        getCallResponse();
+    }
+
+    public void PLAYNOW(View view) {
+        try {
+            startAudioPlayback();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void STOPNOW(View view) {
+        stopAudioPlayback();
     }
 }

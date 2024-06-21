@@ -3,4 +3,6 @@
     <string name="title_activity_fullscreen_chat">FullscreenChatActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="default_notification_channel_id">my_default_channel_id</string>
+
 </resources>

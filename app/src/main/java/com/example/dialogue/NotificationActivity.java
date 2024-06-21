@@ -103,8 +103,8 @@ public class NotificationActivity extends AppCompatActivity {
                 .setSmallIcon(R.drawable.main_icon)  // Replace with your app's icon
                 .setContentTitle(use)
                 .setContentText(ms)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, builder.build());
     }

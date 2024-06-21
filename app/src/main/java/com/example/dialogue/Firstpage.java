@@ -11,6 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 public class Firstpage extends AppCompatActivity {
 
     private Button Employ;
@@ -26,7 +29,8 @@ public class Firstpage extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        FirebaseApp.initializeApp(this);
+        FirebaseMessaging.getInstance().setAutoInitEnabled(true);
 
         Employ = findViewById(R.id.em);
         Hr = findViewById(R.id.hr);
@@ -49,6 +53,7 @@ public class Firstpage extends AppCompatActivity {
     }
 
     public void gotoserpage(View view) {
+
         startActivity(new Intent(Firstpage.this,ServerActivity.class));
     }
 }
