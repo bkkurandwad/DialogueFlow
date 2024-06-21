@@ -1,6 +1,8 @@
 package com.example.dialogue.network;
 
 import com.example.dialogue.helpers.LenientGsonConverterFactory;
+import com.example.dialogue.models.StringConverterFactory;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 
@@ -22,6 +24,7 @@ public class RetrofitClient {
             retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .client(okHttpClient)
+                    .addConverterFactory(StringConverterFactory.create())
                     .addConverterFactory(LenientGsonConverterFactory.create())
                     .build();
         }

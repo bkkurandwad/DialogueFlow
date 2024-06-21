@@ -5,6 +5,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface ApiService {
@@ -13,8 +14,9 @@ public interface ApiService {
     @POST("/synthesis") // Replace with your endpoint
     Call<Void> synthesizeText(@Body TextRequest textRequest);
 
-   // @POST("/posttoken")
-    //Call<Void> sendFCMTokenToServer(@Body String requestBody);
+    @Headers("Content-Type: application/json")
+    @POST("/posttoken")
+    Call<Void> sendFCMTokenToServer(@Body String body);
 
     @GET("/call")
     Call<ResponseBody> getCallResponse();

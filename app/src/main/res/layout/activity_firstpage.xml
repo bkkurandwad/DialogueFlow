@@ -13,36 +13,38 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:id="@+id/tem"
-        android:text="         WELCOME "
+        android:text="       WELCOME "
         android:textSize="44dp"
         android:textColor="@color/white"
         android:layout_marginTop="50dp"/>
 
     <Button
         android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:text="EMPLOYEE"
         android:textSize="20dp"
         android:layout_below="@+id/tem"
         android:id="@+id/em"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
+        android:background="@drawable/rounded_button"
         />
 
     <Button
         android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:text="HR"
         android:textSize="20dp"
         android:id="@+id/hr"
         android:layout_below="@+id/em"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_button"
         />
 
     <Button
         android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:text="server"
         android:textSize="20dp"
         android:id="@+id/server"
@@ -50,6 +52,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:onClick="gotoserpage"
+        android:background="@drawable/rounded_button"
         />
 
 </RelativeLayout>

@@ -33,6 +33,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="350dp"
         android:onClick="STOPNOW"
+        android:background="@drawable/rounded_button"
         />
 
     <TextView
@@ -43,5 +44,14 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"/>
+
+    <Button
+        android:text="post to server"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:onClick="postserver"
+        />
 
 </RelativeLayout>

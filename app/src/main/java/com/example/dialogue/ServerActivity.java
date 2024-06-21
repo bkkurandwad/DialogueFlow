@@ -48,6 +48,7 @@ public class ServerActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
     private TextView textView;
     private ApiService apiService;
+    private String tok;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +93,8 @@ public class ServerActivity extends AppCompatActivity {
                     // Log or send the token to your server
                     Log.d("FCM", "Token: " + token);
                     textView.setText("Token: "+ token);
+tok = token;
 
-                  //  sendToservernow(token);
                 });
 
     }
@@ -180,73 +181,38 @@ public class ServerActivity extends AppCompatActivity {
         });
     }
 
-//    public void sendToservernow(String token) {
-//        try {
-//            JSONObject jsonObject = new JSONObject();
-//            jsonObject.put("token", token);
-//
-//            String requestBody = jsonObject.toString();
-//
-//            Call<Void> call = apiService.sendFCMTokenToServer(requestBody);
-//            call.enqueue(new Callback<Void>() {
-//                @Override
-//                public void onResponse(Call<Void> call, Response<Void> response) {
-//                    if (response.isSuccessful()) {
-//                        Log.d(TAG, "Token sent to server successfully");
-//                        Toast.makeText(ServerActivity.this, "Token sent to server successfully", Toast.LENGTH_SHORT).show();
-//                        // Handle success if needed
-//                    } else {
-//                        Log.e(TAG, "Failed to send token to server. Error: " + response.message());
-//                        Toast.makeText(ServerActivity.this, "Token not sent", Toast.LENGTH_SHORT).show();
-//                        // Handle error if needed
-//                    }
-//                }
-//
-//                @Override
-//                public void onFailure(Call<Void> call, Throwable t) {
-//                    Log.e(TAG, "Failed to send token to server. Error: " + t.getMessage(), t);
-//                    Toast.makeText(ServerActivity.this, "Network error. Failed to send token", Toast.LENGTH_SHORT).show();
-//                    // Handle failure
-//                }
-//            });
-//        } catch (JSONException e) {
-//            Log.e(TAG, "Error creating JSON object", e);
-//            Toast.makeText(ServerActivity.this, "Error sending token to server", Toast.LENGTH_SHORT).show();
-//        }
-//    }
-//
+    public void sendToservernow(String token) {
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("token", token);
 
+            String requestBody = jsonObject.toString();
 
+            Call<Void> call = apiService.sendFCMTokenToServer(requestBody);
+            call.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        Log.d(TAG, "Token sent to server successfully");
+                        Toast.makeText(ServerActivity.this, "Token sent to server successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.e(TAG, "Failed to send token to server. Error: " + response.message());
+                        Toast.makeText(ServerActivity.this, "Token not sent", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-//    public void sendTosevernow(String token) {
-//
-//
-//            @Override
-//            public void onFailure(Call<Void> call, Throwable t) {
-//
-//            }
-//
-//            private void sendTextAndReceiveAudio(String text) {
-//        TextRequest textRequest = new TextRequest(text);
-//
-//        Call<Void> call = apiService.synthesizeText(textRequest);
-//        call.enqueue(new Callback<Void>() {
-//            @Override
-//            public void onResponse(Call<Void> call, Response<Void> response) {
-//                if (response.isSuccessful()) {
-//                    // Handle successful response (audio received)
-//                    // You can play the audio or save it locally
-//                } else {
-//                    // Handle unsuccessful response
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Void> call, Throwable t) {
-//                // Handle failure (network error, etc.)
-//            }
-//        });
-//    }
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Log.e(TAG, "Failed to send token to server. Error: " + t.getMessage(), t);
+                    Toast.makeText(ServerActivity.this, "Network error. Failed to send token", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (JSONException e) {
+            Log.e(TAG, "Error creating JSON object", e);
+            Toast.makeText(ServerActivity.this, "Error sending token to server", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     private void makeNetworkRequest() {
         Call<ResponseBody> call = apiService.getHelloWorld();
@@ -297,4 +263,14 @@ public class ServerActivity extends AppCompatActivity {
     public void STOPNOW(View view) {
         stopAudioPlayback();
     }
+
+    public void postserver(View view) {
+        if (tok != null && !tok.isEmpty()) {
+            sendToservernow(tok);
+        } else {
+            Toast.makeText(this, "Token is not available. Please try again later.", Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Token is not available.");
+        }
+    }
+
 }
