@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_4"
+    tools:context=".CallRActivity">
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:text="CALL FROM SERVER"
+        android:textAlignment="center"
+        android:textSize="100px"
+        />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/img_5"
+        android:id="@+id/rec_call"
+        android:onClick="r_call"
+        />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="250dp"
+        android:background="@drawable/img_6"
+        android:id="@+id/dec_call"
+        android:onClick="c_call"
+        />
+
+</RelativeLayout>

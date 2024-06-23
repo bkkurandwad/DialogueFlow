@@ -1,8 +1,11 @@
 package com.example.dialogue;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,9 +17,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.dialogue.network.ApiService;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class Elogin extends AppCompatActivity {
@@ -24,7 +35,7 @@ public class Elogin extends AppCompatActivity {
     private EditText email2;
     private EditText password2;
     FirebaseAuth auth;
-
+    private ApiService apiService;
     private Button test1;
 
     @Override
@@ -88,6 +99,38 @@ public class Elogin extends AppCompatActivity {
                 startActivity(new Intent(Elogin.this,Edash.class));
             }
         });
+    }
+
+    public void Loginuser(String mail, String pswrd) {
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("mail", mail);
+            jsonObject.put("pswrd", pswrd);
+            String requestBody = jsonObject.toString();
+
+            Call<Void> call = apiService.empLogin(requestBody);
+            call.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        Log.d(TAG, "login req sent to server successfully");
+                        Toast.makeText(Elogin.this, "Token sent to server successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.e(TAG, "Failed to send token to server. Error: " + response.message());
+                        Toast.makeText(Elogin.this, "Token not sent", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Log.e(TAG, "Failed to send token to server. Error: " + t.getMessage(), t);
+                    Toast.makeText(Elogin.this, "Network error. Failed to lohin", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (JSONException e) {
+            Log.e(TAG, "Error creating JSON object", e);
+            Toast.makeText(Elogin.this, "Error sending req to server", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

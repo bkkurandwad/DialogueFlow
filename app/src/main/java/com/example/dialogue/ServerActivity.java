@@ -2,6 +2,7 @@ package com.example.dialogue;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import android.speech.tts.TextToSpeechService;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,10 +48,13 @@ public class ServerActivity extends AppCompatActivity {
 
     private TextToSpeechService service;
     private MediaPlayer mediaPlayer;
-    private TextView textView;
+    private TextView textView,tw2;
     private ApiService apiService;
-    private String tok;
+    private String tok, ids;
 
+    private EditText et;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +69,8 @@ public class ServerActivity extends AppCompatActivity {
 
         // Initialize TextView
         textView = findViewById(R.id.serst);
+        tw2 = findViewById(R.id.tw);
+        et = findViewById(R.id.ets);
 
         // Initialize Retrofit using RetrofitClient
         Retrofit retrofit = RetrofitClient.getClient("https://webhook-kxvp.onrender.com/");
@@ -75,7 +82,7 @@ public class ServerActivity extends AppCompatActivity {
         mediaPlayer = new MediaPlayer();
         // Make network request
       //  makeNetworkRequest();
-        
+        ids = et.getText().toString();
 
     }
 
@@ -181,11 +188,11 @@ tok = token;
         });
     }
 
-    public void sendToservernow(String token) {
+    public void sendToservernow(String token, String id) {
         try {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("token", token);
-
+            jsonObject.put("id",id);
             String requestBody = jsonObject.toString();
 
             Call<Void> call = apiService.sendFCMTokenToServer(requestBody);
@@ -261,12 +268,18 @@ tok = token;
     }
 
     public void STOPNOW(View view) {
-        stopAudioPlayback();
+        //stopAudioPlayback();
+        // Example usage in an Activity or Service
+        AlarmScheduler.scheduleAlarmAtSpecificTime(this, 0, 12); // Schedule alarm at 10:30 AM
+
+
     }
 
     public void postserver(View view) {
         if (tok != null && !tok.isEmpty()) {
-            sendToservernow(tok);
+            //tw2.setText(ids);
+            Toast.makeText(this, ids, Toast.LENGTH_SHORT).show();
+            sendToservernow(tok, "abcd");
         } else {
             Toast.makeText(this, "Token is not available. Please try again later.", Toast.LENGTH_SHORT).show();
             Log.e(TAG, "Token is not available.");
