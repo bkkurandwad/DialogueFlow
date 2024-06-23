@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Hrdash extends AppCompatActivity {
@@ -39,7 +40,7 @@ public class Hrdash extends AppCompatActivity {
     public void gotowork(View view) { startActivity(new Intent(Hrdash.this, Workreg.class));
     }
 
-    public void gotoadwork(View view) { startActivity(new Intent(Hrdash.this, Workreg.class));
+    public void gotoadwork(View view) { startActivity(new Intent(Hrdash.this, WorkInsActivity.class));
     }
 
     public void gotoupwork(View view) { startActivity(new Intent(Hrdash.this, Workreg.class));

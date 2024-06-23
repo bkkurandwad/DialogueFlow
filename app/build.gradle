@@ -68,7 +68,7 @@ dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:31.2.0')
     implementation 'com.google.firebase:firebase-messaging'
-
+    implementation 'com.google.firebase:firebase-analytics:X.Y.Z'
 
     implementation 'io.grpc:grpc-okhttp:1.63.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

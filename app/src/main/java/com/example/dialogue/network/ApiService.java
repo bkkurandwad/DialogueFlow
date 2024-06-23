@@ -18,8 +18,18 @@ public interface ApiService {
     @POST("/posttoken")
     Call<Void> sendFCMTokenToServer(@Body String body);
 
+    @Headers("Content-Type: application/json")
+    @POST("/emp/reg")
+    Call<Void> empLogin(@Body String body);
+
+
     @GET("/call")
     Call<ResponseBody> getCallResponse();
+
+
+        @POST("/api/work/reg")
+        Call<Void> sendWorkDetailsToServer(@Body String requestBody);
+
 
     }
 
