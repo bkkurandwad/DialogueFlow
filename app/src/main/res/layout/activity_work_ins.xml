@@ -11,17 +11,18 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:id="@+id/title"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="60dp"
+        android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:textSize="30dp"
-        android:text="ENTER WORK "
+        android:text="ENTER DETAILS"
         />
 
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="120dp"
         android:layout_centerHorizontal="true"
         android:hint="ENTER WORK ID"
         android:id="@+id/work_id"
@@ -30,7 +31,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="170dp"
         android:layout_centerHorizontal="true"
         android:hint="ENTER WORK TITLE"
         android:id="@+id/work_title"
@@ -39,7 +40,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="220dp"
         android:layout_centerHorizontal="true"
         android:hint="ENTER WORK DESCRIPTION"
         android:id="@+id/work_description"
@@ -48,7 +49,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="270dp"
         android:layout_centerHorizontal="true"
         android:hint="ENTER ASSIGNED TO"
         android:id="@+id/assigned_to"
@@ -57,7 +58,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="320dp"
         android:layout_centerHorizontal="true"
         android:hint="ENTER ASSIGNED BY"
         android:id="@+id/assigned_by"
@@ -66,25 +67,25 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="370dp"
         android:layout_centerHorizontal="true"
-        android:hint="ENTER START TIME (ISO 8601)"
+        android:hint="ENTER START TIME"
         android:id="@+id/start_time"
         />
 
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="420dp"
         android:layout_centerHorizontal="true"
-        android:hint="ENTER END TIME (ISO 8601)"
+        android:hint="ENTER END TIME"
         android:id="@+id/end_time"
         />
 
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="470dp"
         android:layout_centerHorizontal="true"
         android:hint="ENTER DUE DATE"
         android:id="@+id/due_date"
@@ -94,7 +95,7 @@
         android:id="@+id/submit_button"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="560dp"
         android:layout_centerHorizontal="true"
         android:text="SUBMIT"
         />

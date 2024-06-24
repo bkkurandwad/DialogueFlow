@@ -131,8 +131,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setContentTitle(title)
                         .setContentText(body)
                         .setAutoCancel(true)
-                        .addAction(R.drawable.img, "Answer", answerPendingIntent)
-                        .addAction(R.drawable.img_1, "Reject", rejectPendingIntent)
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
 
@@ -189,7 +187,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 if (response.isSuccessful() && response.body() != null) {
                     try {
                         // Save the MP3 file to internal storage
-                        File file = new File(getFilesDir(), "call2.mp3");
+                        File file = new File(getFilesDir(), "callnew.mp3");
                         InputStream inputStream = null;
                         FileOutputStream outputStream = null;
 

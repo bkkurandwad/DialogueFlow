@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img"
+    android:background="@drawable/img_3"
     tools:context=".Eregister">
 
     <TextView
@@ -38,18 +38,18 @@
     <Button
         android:id="@+id/registerButton"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/editTextTextPassword"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:text="REGISTER"
-        android:textColor="@color/black" />
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_below="@id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -59,8 +59,8 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_below="@id/editTextTextEmailAddress"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"

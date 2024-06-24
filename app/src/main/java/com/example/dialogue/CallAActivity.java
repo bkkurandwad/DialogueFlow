@@ -46,10 +46,12 @@ public class CallAActivity extends AppCompatActivity {
 
     public void cut_call(View view) {
         Toast.makeText(this, "exiting the call", Toast.LENGTH_SHORT).show();
+        stopAudioPlayback();
         System.exit(0);
     }
 
     private void startAudioPlayback() throws IOException {
+        stopAudioPlayback();
         // Set data source to the MP3 file
         File file = new File(getFilesDir(), "call2.mp3");
         mediaPlayer.setDataSource(this, Uri.fromFile(file));
