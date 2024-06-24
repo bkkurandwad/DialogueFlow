@@ -52,8 +52,8 @@ public class Firstpage extends AppCompatActivity {
 
     }
 
-    public void gotoserpage(View view) {
-
-        startActivity(new Intent(Firstpage.this,ServerActivity.class));
-    }
+//    public void gotoserpage(View view) {
+//
+//        startActivity(new Intent(Firstpage.this,ServerActivity.class));
+//    }
 }

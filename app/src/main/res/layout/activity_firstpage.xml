@@ -42,17 +42,6 @@
         android:background="@drawable/rounded_button"
         />
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="server"
-        android:textSize="20dp"
-        android:id="@+id/server"
-        android:layout_below="@+id/hr"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:onClick="gotoserpage"
-        android:background="@drawable/rounded_button"
-        />
+
 
 </RelativeLayout>

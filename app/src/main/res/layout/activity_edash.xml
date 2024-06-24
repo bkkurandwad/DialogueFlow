@@ -13,7 +13,8 @@
         android:id="@+id/dash"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:text="      EMPLOYEE \n     DASHBOARD"
+        android:text=" EMPLOYEE \n DASHBOARD"
+        android:textAlignment="center"
         android:textSize="50dp"
         android:textColor="@color/black"
         android:layout_marginTop="50dp"
@@ -22,8 +23,8 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="CHAT"
-        android:layout_marginTop="200dp"
+        android:text="CHAT BOT"
+        android:layout_marginTop="300dp"
         android:layout_centerHorizontal="true"
         android:onClick="gotochat"
         />
@@ -32,15 +33,6 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="VOICE BOT"
-        android:layout_marginTop="300dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="gotovoicebot"
-        />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="BOT"
         android:layout_marginTop="350dp"
         android:layout_centerHorizontal="true"
         android:onClick="gotobot"
@@ -49,19 +41,10 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="WORK DETAILS"
+        android:text="CALL BOT"
         android:layout_marginTop="400dp"
         android:layout_centerHorizontal="true"
-        android:onClick="gotowork"
-        />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="Notify"
-        android:layout_marginTop="450dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="gotonot"
+        android:onClick="callbot"
         />
 
     <Button
@@ -73,5 +56,15 @@
         android:layout_centerHorizontal="true"
         android:text="SIGN OUT"
         />
+
+    <TextView
+        android:id="@+id/tw"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="80px"
+        android:layout_marginTop="550dp"/>
 
 </RelativeLayout>
