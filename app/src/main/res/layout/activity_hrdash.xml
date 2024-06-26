@@ -31,19 +31,19 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="VOICE BOT"
+        android:text="CHAT - VOICE BOT"
         android:layout_marginTop="350dp"
         android:layout_centerHorizontal="true"
-        android:onClick="gotobot"
+        android:onClick="gocht"
         />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="CALL BOT"
+        android:text="CALL VOICE BOT"
         android:layout_marginTop="400dp"
         android:layout_centerHorizontal="true"
-        android:onClick="callbot"
+        android:onClick="gotobot"
         />
 
     <Button
@@ -55,7 +55,15 @@
         android:onClick="gotoadwork"
         />
 
-
+    <TextView
+        android:id="@+id/tw"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="80px"
+        android:layout_marginTop="550dp"/>
 
 
     <Button

@@ -24,7 +24,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="450dp"
         android:layout_marginLeft="50dp"
-        android:background="@drawable/img_5"
+        android:background="@drawable/img_8"
         android:id="@+id/rec_call"
         android:onClick="r_call"
         />

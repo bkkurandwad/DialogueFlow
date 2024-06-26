@@ -66,7 +66,7 @@ public class Edash extends AppCompatActivity {
 
     public void callbot(View view) {
         TextView tw = findViewById(R.id.tw);
-        tw.setText("9564632353535");
+        tw.setText("+1 323-814-5434");
         }
 
 }

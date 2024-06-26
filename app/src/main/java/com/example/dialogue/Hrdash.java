@@ -1,8 +1,11 @@
 package com.example.dialogue;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -53,5 +56,18 @@ public class Hrdash extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
         Toast.makeText(Hrdash.this, "User Signed Out", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(Hrdash.this, Firstpage.class));
+    }
+
+
+    public void gotobot(View view) {
+        TextView tw = findViewById(R.id.tw);
+        tw.setText("+1 323-814-5434");
+    }
+
+    public void gotochat(View view) {
+        startActivity(new Intent(Hrdash.this, Chatbot.class));
+    }
+
+    public void gocht(View view) { startActivity(new Intent(Hrdash.this, DCV_activity.class));
     }
 }
