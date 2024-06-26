@@ -53,7 +53,7 @@ public class CallAActivity extends AppCompatActivity {
     private void startAudioPlayback() throws IOException {
         stopAudioPlayback();
         // Set data source to the MP3 file
-        File file = new File(getFilesDir(), "call2.mp3");
+        File file = new File(getFilesDir(), "hrcall.mp3");
         mediaPlayer.setDataSource(this, Uri.fromFile(file));
 
         // Prepare and start playback
