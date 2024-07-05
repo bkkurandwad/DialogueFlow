@@ -10,9 +10,36 @@
     tools:context=".Eregdetails">
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="WELCOME TO THE APP"
+        android:textAlignment="center"
+        android:textColor="#2C2A2A"
+        android:textColorLink="#E42929"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:text="EMPLOYEE REGISTER"
+        android:textAlignment="center"
+        android:textColorLink="#E42929"
+        android:textSize="30sp"
+        android:textStyle="italic" />
+
+    <TextView
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:id="@+id/etw"
+        android:layout_below = "@+id/textView2"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
@@ -41,8 +68,6 @@
         android:id="@+id/eet2"
         />
 
-
-
     <EditText
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -53,6 +78,27 @@
         android:id="@+id/eet4"
         />
 
+    <EditText
+        android:id="@+id/EmailAddress"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/eet4"
+        android:ems="10"
+        android:hint="EMAIL"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/TextPassword"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/EmailAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="PASSWORD"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/sube"

@@ -31,14 +31,11 @@ public class Hrdash extends AppCompatActivity {
         });
     }
 
-    public void gotoempd(View view) { startActivity(new Intent(Hrdash.this, Empreg.class));
-    }
 
-    public void gotoademp(View view) { startActivity(new Intent(Hrdash.this, Empreg.class));
-    }
 
-    public void gotoremp(View view) { startActivity(new Intent(Hrdash.this, Empreg.class));
-    }
+
+
+
 
     public void gotowork(View view) { startActivity(new Intent(Hrdash.this, Workreg.class));
     }
@@ -53,8 +50,7 @@ public class Hrdash extends AppCompatActivity {
     }
 
     public void signout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        Toast.makeText(Hrdash.this, "User Signed Out", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Hrdash.this, "HR Signed Out", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(Hrdash.this, Firstpage.class));
     }
 

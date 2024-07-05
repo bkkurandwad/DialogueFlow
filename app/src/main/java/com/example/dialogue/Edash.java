@@ -38,7 +38,7 @@ public class Edash extends AppCompatActivity {
         signout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
+               // FirebaseAuth.getInstance().signOut();
                 Toast.makeText(Edash.this, "User Signed Out", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Edash.this, Firstpage.class));
             }
