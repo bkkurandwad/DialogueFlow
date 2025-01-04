@@ -94,6 +94,7 @@ public class WorkInsActivity extends AppCompatActivity {
                         Log.e(TAG, "Failed to send work details to server. Error: " + response.message());
                         Toast.makeText(WorkInsActivity.this, "Work details not sent", Toast.LENGTH_SHORT).show();
                     }
+
                 }
 
                 @Override
