@@ -36,7 +36,7 @@ import retrofit2.Retrofit;
 public class Elogin extends AppCompatActivity {
 
     private EditText email2;
-    public String txtemail;
+
     private ApiService apiService;
     private EditText password2;
     FirebaseAuth auth;
@@ -82,20 +82,20 @@ public class Elogin extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txtemail = email2.getText().toString();
+                String txtemail = email2.getText().toString();
                 String txtpwd = password2.getText().toString();
 
                 if (TextUtils.isEmpty(txtemail) || TextUtils.isEmpty(txtpwd))
                     Toast.makeText(Elogin.this, "Empty credientials ", Toast.LENGTH_SHORT).show();
-                else if (txtpwd.length() < 3)
+                else if (txtpwd.length() < 6)
                     Toast.makeText(Elogin.this, "wrong password", Toast.LENGTH_SHORT).show();
                 else {
                     if(app_token == null){
                         Toast.makeText(Elogin.this, "toast is empty", Toast.LENGTH_SHORT).show();
                     }
-
+                    Tokenuser(txtemail, app_token);
                     Loginuser(txtemail, txtpwd);
-
+                  //  loginuser(txtemail, txtpwd);
                 }
             }
         });
@@ -103,7 +103,7 @@ public class Elogin extends AppCompatActivity {
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Elogin.this, Eregdetails.class));
+                startActivity(new Intent(Elogin.this, Eregister.class));
             }
         });
 
@@ -140,14 +140,10 @@ public class Elogin extends AppCompatActivity {
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()) {
                         Log.d(TAG, "login req sent to server successfully");
-                        Tokenuser(txtemail, app_token);
-                        Toast.makeText(Elogin.this, "LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Elogin.this,Edash.class));
-
+                        Toast.makeText(Elogin.this, "Token sent to server successfully", Toast.LENGTH_SHORT).show();
                     } else {
                         Log.e(TAG, "Failed to send token to server. Error: " + response.message());
-                        Toast.makeText(Elogin.this, "INVALID CREDINTIALS", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(Elogin.this, "Token not sent", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -181,7 +177,6 @@ public class Elogin extends AppCompatActivity {
                         Log.e(TAG, "Failed to send token to server. Error: " + response.message());
                         Toast.makeText(Elogin.this, "Token not sent", Toast.LENGTH_SHORT).show();
                     }
-
                 }
 
                 @Override

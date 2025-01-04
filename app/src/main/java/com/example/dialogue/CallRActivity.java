@@ -42,8 +42,7 @@ public class CallRActivity extends AppCompatActivity {
 
     public void c_call(View view) {
         //stopAudioPlayback();
-       // stopRingtone();
-        AlarmReceiver.stopRingtone();
+        stopRingtone();
         startActivity(new Intent(CallRActivity.this, Edash.class));
     }
 //    private void stopAudioPlayback() {

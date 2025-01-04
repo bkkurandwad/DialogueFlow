@@ -178,7 +178,6 @@ tok = token;
                     Log.e(TAG, "Unsuccessful response: " + response.code());
                     textView.setText("Error: " + response.code());
                 }
-
             }
 
             @Override
@@ -207,7 +206,6 @@ tok = token;
                         Log.e(TAG, "Failed to send token to server. Error: " + response.message());
                         Toast.makeText(ServerActivity.this, "Token not sent", Toast.LENGTH_SHORT).show();
                     }
-
                 }
 
                 @Override
@@ -242,7 +240,6 @@ tok = token;
                     Log.e(TAG, "Unsuccessful response: " + response.code());
                     textView.setText("Error: " + response.code());
                 }
-
             }
 
             @Override

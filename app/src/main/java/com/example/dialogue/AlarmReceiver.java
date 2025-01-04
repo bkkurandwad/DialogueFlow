@@ -56,14 +56,14 @@ public class AlarmReceiver extends BroadcastReceiver {
             mediaPlayer.setDataSource(context, Uri.parse(ringtoneUri));
             mediaPlayer.prepare();
             mediaPlayer.start();
-            Log.d(TAG, "Ringtone Started in alarm recevier");
+            Log.d(TAG, "Ringtone Started");
         } catch (Exception e) {
             Log.e(TAG, "Error playing ringtone: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    public static void stopRingtone() {
+    private void stopRingtone() {
         if (mediaPlayer != null) {
             mediaPlayer.stop();
             mediaPlayer.release();

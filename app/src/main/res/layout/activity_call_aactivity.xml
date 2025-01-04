@@ -7,22 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".CallAActivity">
 
-    <TextView
-        android:id="@+id/timerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:textSize="34sp"
-        android:textColor="@color/black"
-        android:text="00:00" />
-
     <ImageButton
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="500dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/cut_call2"
+        android:background="@drawable/cut_call"
         android:id="@+id/cut_call"
         android:onClick="cut_call"
         />
