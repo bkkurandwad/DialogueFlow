@@ -66,6 +66,9 @@
             android:name=".VoiceActivity"
             android:exported="false" />
         <activity
+            android:name=".Empreg"
+            android:exported="false" />
+        <activity
             android:name=".Workreg"
             android:exported="false" />
         <activity

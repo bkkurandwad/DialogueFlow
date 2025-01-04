@@ -46,7 +46,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:hint="ENTER PHN NUM"
+        android:hint="ENTER DEPT"
         android:layout_below="@+id/hret2"
         android:id="@+id/hret3"
         />
@@ -57,7 +57,7 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/hret3"
-        android:hint="EMAIL ID"
+        android:hint="ENTER PH NUMBER"
         android:id="@+id/hret4"
         />
 
@@ -67,7 +67,7 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/hret4"
-        android:hint="PSWRD"
+        android:hint="ENTER ADDRESS"
         android:id="@+id/hret5"
         />
 
@@ -79,7 +79,6 @@
         android:layout_centerHorizontal="true"
         android:text="SUBMIT"
         android:id="@+id/subhr"
-        android:onClick="reghr"
         />
 
 
