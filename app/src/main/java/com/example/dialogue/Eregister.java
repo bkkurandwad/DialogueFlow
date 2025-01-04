@@ -66,7 +66,7 @@ public class Eregister extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(Eregister.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Eregister.this, Eregdetails.class);
+                Intent intent = new Intent(Eregister.this, Elogin.class);
                 intent.putExtra("email", mail);
                 intent.putExtra("pswrd", pwd);
                 startActivity(intent);

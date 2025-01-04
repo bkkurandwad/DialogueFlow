@@ -223,7 +223,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     Log.e(TAG, "Unsuccessful response: " + response.code());
                  //   textView.setText("Error: " + response.code());
                 }
-
             }
 
             @Override
